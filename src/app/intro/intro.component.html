@@ -1,0 +1,26 @@
+<div class="centered-div">
+  <div class="p-4">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Ime</mat-label>
+        <input
+          matInput
+          placeholder="Ime"
+          [(ngModel)]="participantName"
+          name="ime"
+        />
+      </mat-form-field>
+      <section>
+        <div class="example-button-row">
+          <button
+            mat-button
+            [disabled]="!participantName"
+            (click)="startTest()"
+          >
+            Pocni
+          </button>
+        </div>
+      </section>
+    </form>
+  </div>
+</div>

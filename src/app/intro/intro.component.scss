@@ -1,0 +1,13 @@
+:host ::ng-deep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+}
+
+.centered-div {
+
+  background-color: white;
+  border: 1px solid #000;
+}

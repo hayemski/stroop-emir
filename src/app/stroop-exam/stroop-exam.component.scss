@@ -1,0 +1,33 @@
+:host ::ng-deep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+}
+
+.wrapper {
+  background-color: white;
+}
+
+.button-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button-yes-no {
+  width: 200px;
+}
+
+.timer {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.question-label {
+  font-size: 24px;
+  margin-top: 20px;
+}

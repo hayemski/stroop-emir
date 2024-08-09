@@ -1,0 +1,36 @@
+<div class="wrapper p-5">
+  <div class="timer text-center">
+    <b>{{ seconds | time }}</b>
+    <br />
+    <br />
+    <br />
+
+    {{ questionNumber }}/{{ maxQuestions }}
+  </div>
+
+  <br />
+  <h2 class="question-label text-center">
+    Da li se tekst poklapa sa bojom na slici?
+  </h2>
+
+  <img [src]="'./assets/' + activeQuestion.file" alt="" />
+
+  <div class="button-row">
+    <button
+      class="button-yes-no"
+      mat-flat-button
+      (click)="nextQuestion(activeQuestion, true)"
+      value="true"
+    >
+      DA
+    </button>
+    <button
+      class="button-yes-no"
+      mat-flat-button
+      (click)="nextQuestion(activeQuestion, false)"
+      value="false"
+    >
+      NE
+    </button>
+  </div>
+</div>

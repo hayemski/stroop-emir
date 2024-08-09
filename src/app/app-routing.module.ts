@@ -1,10 +1,18 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IntroComponent } from './intro/intro.component';
+import { StroopExamComponent } from './stroop-exam/stroop-exam.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: IntroComponent,
+  },
+  { path: 'stroop-exam', component: StroopExamComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

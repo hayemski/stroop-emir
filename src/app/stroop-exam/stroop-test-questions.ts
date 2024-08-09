@@ -1,0 +1,17 @@
+export const stroopTestQuestions = [
+  { questionId: 1, file: 'crveno.png', trueAnswer: false },
+  { questionId: 2, file: 'crveno1.png', trueAnswer: false },
+  { questionId: 3, file: 'crveno2.png', trueAnswer: false },
+  { questionId: 4, file: 'crveno3.png', trueAnswer: true },
+  { questionId: 5, file: 'sino.png', trueAnswer: false },
+  { questionId: 6, file: 'sino1.png', trueAnswer: false },
+  { questionId: 7, file: 'sino2.png', trueAnswer: false },
+  { questionId: 8, file: 'sino3.png', trueAnswer: true },
+  { questionId: 9, file: 'zelena.png', trueAnswer: false },
+  { questionId: 10, file: 'zelena1.png', trueAnswer: false },
+  { questionId: 11, file: 'zelena2.png', trueAnswer: false },
+  { questionId: 12, file: 'zelena3.png', trueAnswer: true },
+  { questionId: 13, file: 'zholto.png', trueAnswer: false },
+  { questionId: 14, file: 'zholto2.png', trueAnswer: false },
+  { questionId: 15, file: 'zholto3.png', trueAnswer: true },
+];
