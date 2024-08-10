@@ -6,5 +6,7 @@ import { Injectable } from '@angular/core';
 export class StroopService {
   participantName?: string;
 
+  stroopResults: any = [];
+
   constructor() { }
 }

@@ -9,13 +9,15 @@ import { MaterialModule } from './material/material.module';
 import { StroopExamComponent } from './stroop-exam/stroop-exam.component';
 import { FormsModule } from '@angular/forms';
 import { TimePipe } from './time.pipe';
+import { StroopResultsComponent } from './stroop-results/stroop-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
     StroopExamComponent,
-    TimePipe
+    TimePipe,
+    StroopResultsComponent
   ],
   imports: [
     BrowserModule,

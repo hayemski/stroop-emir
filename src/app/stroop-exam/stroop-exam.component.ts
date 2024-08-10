@@ -14,7 +14,7 @@ export class StroopExamComponent {
   maxQuestions: number = 20;
 
   stroopQuestions = stroopTestQuestions;
-  seconds: number = 0;
+  seconds: number = 10;
   private intervalId: any;
 
   activeQuestion!: (typeof stroopTestQuestions)[0];
@@ -38,23 +38,44 @@ export class StroopExamComponent {
     console.log('Randomly selected object:', this.activeQuestion);
   }
 
-  nextQuestion(currentAnswer: typeof stroopTestQuestions[0], answer: boolean) {
+  nextQuestion(
+    currentAnswer: (typeof stroopTestQuestions)[0],
+    answer: boolean | undefined
+  ) {
     if (this.questionNumber === this.maxQuestions) {
-
-      // clearInterval(this.intervalId);
-      // this.router.navigate(['/stroop-results']);
+      this.stroopService.stroopResults = this.answers;
+      this.router.navigate(['/stroop-results']);
       return;
     }
 
+    this.answers.push({
+      questionId: currentAnswer.questionId,
+      answer: answer,
+      time: 10 - this.seconds,
+    });
+
+    this.resetTimer();
+
     this.questionNumber++;
-    this.answers.push({ questionId: currentAnswer.questionId, answer: answer });
 
     this.selectRandomObject();
   }
 
   startTimer(): void {
     this.intervalId = setInterval(() => {
-      this.seconds++;
+      this.seconds--;
+
+      if (this.seconds <= 0) {
+        clearInterval(this.intervalId);
+        this.seconds = 10;
+        this.nextQuestion(this.activeQuestion, undefined);
+      }
     }, 1000);
+  }
+
+  resetTimer(): void {
+    clearInterval(this.intervalId);
+    this.seconds = 10;
+    this.startTimer();
   }
 }
