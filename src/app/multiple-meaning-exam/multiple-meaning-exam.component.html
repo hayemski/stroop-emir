@@ -1,0 +1,38 @@
+<div>
+  <mat-card appearance="outlined" class="card-content">
+    <h1 class="p-2 header-test">Тест на повеќезначни искази</h1>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card-content">
+    <h1 class="p-2 header-test">
+      На наредните искази одговорете со избирање можни значења. Секој од
+      исказите може да има повеќе од едно точно значење. 
+    </h1>
+  </mat-card>
+
+  <form [formGroup]="examForm" (ngSubmit)="submitForm()">
+    <ng-container *ngFor="let question of examQuestions; index as i">
+      <mat-card appearance="outlined" class="card-content">
+        <mat-card-content>
+          <div class="question">
+            <h2>{{ i + 1 }}. {{ question.questionLabel }}</h2>
+          </div>
+
+          <ng-container *ngFor="let answer of question.answers; let j = index">
+            <div>
+              <mat-checkbox
+                class="example-margin"
+                [formControl]="getAnswerControl(i, j)"
+                (change)="onCheckboxChange(i)"
+              >
+                {{ answer.label }}
+              </mat-checkbox>
+            </div>
+          </ng-container>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

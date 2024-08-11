@@ -1,36 +1,33 @@
 :host ::ng-deep {
+  margin-top: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  //   height: 100vh; /* Full viewport height */
   width: 100%;
 }
 
-.centered-div {
-  width: 50%;
+.wrapper {
   background-color: white;
-  border: 1px solid #000;
-}
-
-.explanation-label {
-  width: 40%;
 }
 
 .header-test {
   font-size: 1.3em;
   text-align: center;
   width: 100%;
+}
+
+.card-content {
+  width: 700px;
   margin-bottom: 1em;
 }
 
-.example-button-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
+.question {
+  margin-bottom: 1em;
 }
 
 @media screen and (max-width: 1000px) {
-  .centered-div {
-    width: 90%;
+  .card-content {
+    width: 100%;
   }
 }

@@ -1,23 +1,94 @@
 <div class="centered-div">
   <div class="p-4">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Ime</mat-label>
+    <h1 class="p-2 header-test">Тест на повеќезначни искази и Струпов тест</h1>
+    <form
+      class="example-form"
+      [formGroup]="participantForm"
+      (ngSubmit)="startTest()"
+    >
+      <mat-form-field class="w-100">
+        <mat-label>Возраст</mat-label>
         <input
+          min="1"
+          max="100"
           matInput
-          placeholder="Ime"
-          [(ngModel)]="participantName"
+          type="number"
+          formControlName="age"
           name="ime"
         />
       </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Пол</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="M">Машки</mat-option>
+          <mat-option value="Z">Женски</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Мајчин/прв јазик</mat-label>
+        <mat-select formControlName="motherTongue">
+          <mat-option value="mkd">македонски</mat-option>
+          <mat-option value="alb">албански</mat-option>
+          <mat-option value="tr">турски</mat-option>
+          <mat-option value="bhs"
+            >српски/хрватски/босански/црногорски</mat-option
+          >
+          <mat-option value="rom">ромски</mat-option>
+          <mat-option value="vla">влашки</mat-option>
+          <mat-option value="dr">друг јазик</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="p-3">
+        Прашањето има за цел да определи дали сте пораснале во семејство во кое
+        активно се комуницирало на еден или повеќе јазици. Повеќејазични се оние
+        семејства во кои релативно рамномерно се користат повеќе јазици сто тоа
+        што членовите на семејството имаат различно јазично потекло или
+        припаѓаат на повеќејазични култури. При оваа дефиниција не се подразбира
+        користењето јазици стекнати преку медиуми како што е нпр. англискиот.
+      </div>
+
+      <mat-form-field class="w-100">
+        <mat-label>Јазичен амбиент во семејството</mat-label>
+        <mat-select formControlName="familyLanguageEnvironment">
+          <mat-option value="ES">Еднојазично семејство</mat-option>
+          <mat-option value="PS">Повеќејазично семејство</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="p-3">
+        Наведете ги само оние јазици кои на високо ниво ги владеете - говорите,
+        разбирате, читате и пишувате.
+      </div>
+
+      <mat-form-field class="w-100">
+        <mat-label>Јазици кои ги владеете</mat-label>
+        <mat-select formControlName="languagesFluent" multiple>
+          <mat-option value="mkd">македонски</mat-option>
+          <mat-option value="alb">албански</mat-option>
+          <mat-option value="tr">турски</mat-option>
+          <mat-option value="bhs"
+            >српски/хрватски/босански/црногорски</mat-option
+          >
+          <mat-option value="rom">ромски</mat-option>
+          <mat-option value="vla">влашки</mat-option>
+          <mat-option value="eng">англиски</mat-option>
+          <mat-option value="ger">германски</mat-option>
+          <mat-option value="fra">француски</mat-option>
+          <mat-option value="ita">италијански</mat-option>
+          <mat-option value="esp">шпански</mat-option>
+          <mat-option value="rus">руски</mat-option>
+          <mat-option value="pol">полски</mat-option>
+          <mat-option value="dr">друг јазик</mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <section>
         <div class="example-button-row">
-          <button
-            mat-button
-            [disabled]="!participantName"
-            (click)="startTest()"
-          >
-            Pocni
+          <button mat-button [disabled]="participantForm.invalid" type="submit">
+            Почни
           </button>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IntroComponent } from './intro/intro.component';
 import { StroopExamComponent } from './stroop-exam/stroop-exam.component';
 import { StroopResultsComponent } from './stroop-results/stroop-results.component';
+import { MultipleMeaningExamComponent } from './multiple-meaning-exam/multiple-meaning-exam.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   { path: 'stroop-exam', component: StroopExamComponent },
   { path: 'stroop-results', component: StroopResultsComponent },
+  { path: 'multiple-meaning', component: MultipleMeaningExamComponent },
 ];
 
 @NgModule({

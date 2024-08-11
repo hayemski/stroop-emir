@@ -31,3 +31,13 @@
   font-size: 24px;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 1000px) {
+  .picture-question {
+    width: 100%;
+  }
+
+  .button-yes-no {
+    width: 100%;
+  }
+}

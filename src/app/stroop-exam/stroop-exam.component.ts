@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StroopService } from '../stroop-service.service';
 import { Router } from '@angular/router';
 import { stroopTestQuestions } from './stroop-test-questions';
+import { ParticipantForm } from '../intro/intro.component';
 
 @Component({
   selector: 'app-stroop-exam',
@@ -9,23 +10,26 @@ import { stroopTestQuestions } from './stroop-test-questions';
   styleUrl: './stroop-exam.component.scss',
 })
 export class StroopExamComponent {
-  participantName?: string;
+  // participantName?: string;
+
+  participantForm?: ParticipantForm;
+
   questionNumber: number = 1;
   maxQuestions: number = 20;
 
   stroopQuestions = stroopTestQuestions;
-  seconds: number = 10;
+  seconds: number = 45;
   private intervalId: any;
 
   activeQuestion!: (typeof stroopTestQuestions)[0];
   answers: any = [];
 
   constructor(private stroopService: StroopService, private router: Router) {
-    this.participantName = stroopService.participantName;
+    this.participantForm = this.stroopService.participantForm;
 
-    if (!this.participantName) {
-      this.router.navigate(['/']);
-    }
+    // if (!this.participantForm) {
+    //   this.router.navigate(['/']);
+    // }
 
     this.selectRandomObject();
 
@@ -39,22 +43,19 @@ export class StroopExamComponent {
   }
 
   nextQuestion(
-    currentAnswer: (typeof stroopTestQuestions)[0],
+    currentQuestion: (typeof stroopTestQuestions)[0],
     answer: boolean | undefined
   ) {
-    if (this.questionNumber === this.maxQuestions) {
-      this.stroopService.stroopResults = this.answers;
-      this.router.navigate(['/stroop-results']);
-      return;
-    }
-
     this.answers.push({
-      questionId: currentAnswer.questionId,
-      answer: answer,
-      time: 10 - this.seconds,
+      questionId: currentQuestion.questionId,
+      answer: currentQuestion.trueAnswer === answer ? 'correct' : 'incorrect',
+      // time: 10 - this.seconds,
     });
 
-    this.resetTimer();
+    if (this.questionNumber === this.maxQuestions) {
+      this.finishTest();
+      return;
+    }
 
     this.questionNumber++;
 
@@ -66,11 +67,15 @@ export class StroopExamComponent {
       this.seconds--;
 
       if (this.seconds <= 0) {
-        clearInterval(this.intervalId);
-        this.seconds = 10;
-        this.nextQuestion(this.activeQuestion, undefined);
+        this.finishTest();
       }
     }, 1000);
+  }
+
+  finishTest() {
+    this.stroopService.stroopResults = this.answers;
+    this.stroopService.finishTime = 45 - this.seconds;
+    this.router.navigate(['/stroop-results']);
   }
 
   resetTimer(): void {

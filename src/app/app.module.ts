@@ -7,9 +7,10 @@ import { IntroComponent } from './intro/intro.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './material/material.module';
 import { StroopExamComponent } from './stroop-exam/stroop-exam.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TimePipe } from './time.pipe';
 import { StroopResultsComponent } from './stroop-results/stroop-results.component';
+import { MultipleMeaningExamComponent } from './multiple-meaning-exam/multiple-meaning-exam.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { StroopResultsComponent } from './stroop-results/stroop-results.componen
     IntroComponent,
     StroopExamComponent,
     TimePipe,
-    StroopResultsComponent
+    StroopResultsComponent,
+    MultipleMeaningExamComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()

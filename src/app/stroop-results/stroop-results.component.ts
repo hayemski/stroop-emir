@@ -8,13 +8,15 @@ import { Router } from '@angular/router';
   styleUrl: './stroop-results.component.scss',
 })
 export class StroopResultsComponent {
-  stroopResults: any = [];
+  stroopAnswers: any = [];
+  stroopAnsweringTime: number = 0;
 
   constructor(private stroopService: StroopService, private router: Router) {
-    this.stroopResults = stroopService.stroopResults;
+    this.stroopAnswers = stroopService.stroopResults;
+    this.stroopAnsweringTime = stroopService.finishTime;
 
-    if (!this.stroopResults.length) {
-      this.router.navigate(['/']);
-    }
+    // if (!this.stroopResults.length) {
+    //   this.router.navigate(['/']);
+    // }
   }
 }
