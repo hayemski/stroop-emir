@@ -39,7 +39,6 @@ export class StroopExamComponent {
   selectRandomObject() {
     const randomIndex = Math.floor(Math.random() * this.stroopQuestions.length);
     this.activeQuestion = this.stroopQuestions[randomIndex];
-    console.log('Randomly selected object:', this.activeQuestion);
   }
 
   nextQuestion(

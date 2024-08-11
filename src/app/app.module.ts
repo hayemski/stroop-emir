@@ -9,9 +9,9 @@ import { MaterialModule } from './material/material.module';
 import { StroopExamComponent } from './stroop-exam/stroop-exam.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TimePipe } from './time.pipe';
-import { StroopResultsComponent } from './stroop-results/stroop-results.component';
 import { MultipleMeaningExamComponent } from './multiple-meaning-exam/multiple-meaning-exam.component';
 import { TestResultsPageComponent } from './test-results-page/test-results-page.component';
+import { StroopDisclaimerComponent } from './stroop-disclaimer/stroop-disclaimer.component';
 
 @NgModule({
   declarations: [
@@ -19,20 +19,18 @@ import { TestResultsPageComponent } from './test-results-page/test-results-page.
     IntroComponent,
     StroopExamComponent,
     TimePipe,
-    StroopResultsComponent,
+    StroopDisclaimerComponent,
     MultipleMeaningExamComponent,
-    TestResultsPageComponent
+    TestResultsPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

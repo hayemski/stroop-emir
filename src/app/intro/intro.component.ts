@@ -30,7 +30,7 @@ export class IntroComponent {
 
   startTest() {
     this.stroopService.participantForm = this.participantForm.getRawValue();
-    this.router.navigate(['/stroop-exam']);
+    this.router.navigate(['/stroop-disclaimer']);
   }
 }
 

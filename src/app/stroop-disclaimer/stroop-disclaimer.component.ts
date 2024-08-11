@@ -3,11 +3,11 @@ import { StroopService } from '../stroop-service.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-stroop-results',
-  templateUrl: './stroop-results.component.html',
-  styleUrl: './stroop-results.component.scss',
+  selector: 'app-stroop-disclaimer',
+  templateUrl: './stroop-disclaimer.component.html',
+  styleUrl: './stroop-disclaimer.component.scss',
 })
-export class StroopResultsComponent {
+export class StroopDisclaimerComponent {
   stroopAnswers: any = [];
   stroopAnsweringTime: number = 0;
 
@@ -18,5 +18,9 @@ export class StroopResultsComponent {
     // if (!this.stroopResults.length) {
     //   this.router.navigate(['/']);
     // }
+  }
+
+  next() {
+    this.router.navigate(['/stroop-exam']);
   }
 }

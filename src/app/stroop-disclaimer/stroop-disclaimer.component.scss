@@ -8,5 +8,18 @@
   
   .wrapper {
     background-color: white;
+    width: 600px;
+  }
+
+  .button-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .wrapper {
+      width: 100%;
+    }
   }
   
