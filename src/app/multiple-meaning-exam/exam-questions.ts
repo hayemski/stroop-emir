@@ -156,10 +156,10 @@ export const multipleMeaningTestQuestions = [
     questionId: 14,
     questionLabel: 'Врши притисок додека не го ПОВРАТИ.',
     answers: [
-      { label: 'Спречува некого во неговата намера', value: true },
+      { label: 'Спречува некого во неговата намера', value: false },
       { label: 'Исфрли низ уста храна од желудникот, изблуе', value: true },
       { label: 'Потсетува некого на нешто', value: false },
-      { label: 'Врати во претходна состојба', value: false },
+      { label: 'Врати во претходна состојба', value: true },
     ],
   },
 

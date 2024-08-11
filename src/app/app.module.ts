@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TimePipe } from './time.pipe';
 import { StroopResultsComponent } from './stroop-results/stroop-results.component';
 import { MultipleMeaningExamComponent } from './multiple-meaning-exam/multiple-meaning-exam.component';
+import { TestResultsPageComponent } from './test-results-page/test-results-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MultipleMeaningExamComponent } from './multiple-meaning-exam/multiple-m
     StroopExamComponent,
     TimePipe,
     StroopResultsComponent,
-    MultipleMeaningExamComponent
+    MultipleMeaningExamComponent,
+    TestResultsPageComponent
   ],
   imports: [
     BrowserModule,

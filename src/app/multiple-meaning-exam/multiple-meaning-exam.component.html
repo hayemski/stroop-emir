@@ -4,9 +4,9 @@
   </mat-card>
 
   <mat-card appearance="outlined" class="card-content">
-    <h1 class="p-2 header-test">
+    <h1 class="p-2 header-2-test">
       На наредните искази одговорете со избирање можни значења. Секој од
-      исказите може да има повеќе од едно точно значење. 
+      исказите може да има повеќе од едно точно значење.
     </h1>
   </mat-card>
 
@@ -33,6 +33,15 @@
       </mat-card>
     </ng-container>
 
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <mat-card appearance="outlined" class="card-content">
+      <button
+        mat-raised-button
+        color="success"
+        type="submit"
+        [disabled]="!allQuestionsValid()"
+      >
+        Заврши
+      </button>
+    </mat-card>
   </form>
 </div>

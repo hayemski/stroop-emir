@@ -17,6 +17,12 @@
   width: 100%;
 }
 
+.header-2-test {
+  font-size: 1.2em;
+  text-align: center;
+  width: 100%;
+}
+
 .card-content {
   width: 700px;
   margin-bottom: 1em;
@@ -24,6 +30,14 @@
 
 .question {
   margin-bottom: 1em;
+}
+
+.mat-raised-button.mat-success,
+.mat-flat-button.mat-success,
+.mat-fab.mat-success,
+.mat-mini-fab.mat-success {
+  color: #f0fff3;
+  background-color: #155724;
 }
 
 @media screen and (max-width: 1000px) {

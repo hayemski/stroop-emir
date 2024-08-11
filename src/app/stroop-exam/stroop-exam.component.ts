@@ -27,9 +27,9 @@ export class StroopExamComponent {
   constructor(private stroopService: StroopService, private router: Router) {
     this.participantForm = this.stroopService.participantForm;
 
-    // if (!this.participantForm) {
-    //   this.router.navigate(['/']);
-    // }
+    if (!this.participantForm) {
+      this.router.navigate(['/']);
+    }
 
     this.selectRandomObject();
 
@@ -75,7 +75,8 @@ export class StroopExamComponent {
   finishTest() {
     this.stroopService.stroopResults = this.answers;
     this.stroopService.finishTime = 45 - this.seconds;
-    this.router.navigate(['/stroop-results']);
+
+    this.router.navigate(['/multiple-meaning']);
   }
 
   resetTimer(): void {
