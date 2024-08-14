@@ -12,6 +12,7 @@ import { TimePipe } from './time.pipe';
 import { MultipleMeaningExamComponent } from './multiple-meaning-exam/multiple-meaning-exam.component';
 import { TestResultsPageComponent } from './test-results-page/test-results-page.component';
 import { StroopDisclaimerComponent } from './stroop-disclaimer/stroop-disclaimer.component';
+import { NoDecimalTimePipe } from './no-decimal-time.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { StroopDisclaimerComponent } from './stroop-disclaimer/stroop-disclaimer
     StroopDisclaimerComponent,
     MultipleMeaningExamComponent,
     TestResultsPageComponent,
+    NoDecimalTimePipe
   ],
   imports: [
     BrowserModule,

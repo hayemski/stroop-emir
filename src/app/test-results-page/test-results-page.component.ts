@@ -12,9 +12,11 @@ export class TestResultsPageComponent implements OnInit {
   participantForm?: ParticipantForm;
   resultsStroop = 0;
   resultsMultipleMeaning = 0;
+  finishTime = 0;
 
   constructor(private stroopService: StroopService, private router: Router) {
     this.participantForm = this.stroopService.participantForm;
+    this.finishTime = this.stroopService.finishTime
     this.resultsStroop = this.stroopService.stroopResults.filter(
       (result: any) => result.answer === 'correct'
     ).length;
@@ -22,7 +24,7 @@ export class TestResultsPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.stroopService.participantForm === undefined) {
+    if (!this.stroopService.participantForm) {
       this.router.navigate(['/']);
     }
   }

@@ -1,12 +1,32 @@
 :host ::ng-deep {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+}
+
+.centered-div {
+  margin: 0 auto;
+}
+
+.label-res {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrapper {
+  background-color: white;
+  width: 600px;
+}
+
+.answer {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
     width: 100%;
   }
-  
-  .wrapper {
-    background-color: white;
-    width: 600px;
-  }
+}

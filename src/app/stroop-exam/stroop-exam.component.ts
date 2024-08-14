@@ -24,6 +24,9 @@ export class StroopExamComponent implements OnInit {
   activeQuestion!: (typeof stroopTestQuestions)[0];
   answers: any = [];
 
+  trueCount: number = 0;
+  falseCount: number = 0;
+
   constructor(private stroopService: StroopService, private router: Router) {
     this.participantForm = this.stroopService.participantForm;
 
@@ -39,8 +42,50 @@ export class StroopExamComponent implements OnInit {
   }
 
   selectRandomObject() {
-    const randomIndex = Math.floor(Math.random() * this.stroopQuestions.length);
-    this.activeQuestion = this.stroopQuestions[randomIndex];
+    // Separate questions based on trueAnswer value
+    const falseAnswers = this.stroopQuestions.filter(q => q.trueAnswer === false);
+    const trueAnswers = this.stroopQuestions.filter(q => q.trueAnswer === true);
+
+    let selectedQuestion: { questionId: number; file: string; trueAnswer: boolean } | undefined;
+
+    // Ensure balanced selection
+    if (this.falseCount < 10 && this.trueCount < 10) {
+      // Randomly choose between falseAnswers and trueAnswers
+      if (Math.random() < 0.5 && falseAnswers.length > 0) {
+        const randomIndex = Math.floor(Math.random() * falseAnswers.length);
+        selectedQuestion = falseAnswers[randomIndex];
+      } else if (trueAnswers.length > 0) {
+        const randomIndex = Math.floor(Math.random() * trueAnswers.length);
+        selectedQuestion = trueAnswers[randomIndex];
+      }
+    } else if (this.falseCount < 10 && falseAnswers.length > 0) {
+      // Force selection from falseAnswers if trueAnswers are exhausted
+      const randomIndex = Math.floor(Math.random() * falseAnswers.length);
+      selectedQuestion = falseAnswers[randomIndex];
+    } else if (this.trueCount < 10 && trueAnswers.length > 0) {
+      // Force selection from trueAnswers if falseAnswers are exhausted
+      const randomIndex = Math.floor(Math.random() * trueAnswers.length);
+      selectedQuestion = trueAnswers[randomIndex];
+    }
+
+    // Handle case where no valid question is found (shouldn't happen in practice)
+    if (!selectedQuestion) {
+      throw new Error('No valid question found!');
+    }
+
+    // Check if the selected question is the same as the previous one
+    while (selectedQuestion === this.activeQuestion) {
+      const randomIndex = Math.floor(Math.random() * (selectedQuestion.trueAnswer ? trueAnswers.length : falseAnswers.length));
+      selectedQuestion = selectedQuestion.trueAnswer ? trueAnswers[randomIndex] : falseAnswers[randomIndex];
+    }
+
+    // Assign the selected question and update counts
+    this.activeQuestion = selectedQuestion;
+    if (selectedQuestion.trueAnswer) {
+      this.trueCount++;
+    } else {
+      this.falseCount++;
+    }
   }
 
   nextQuestion(
@@ -65,12 +110,14 @@ export class StroopExamComponent implements OnInit {
 
   startTimer(): void {
     this.intervalId = setInterval(() => {
-      this.seconds--;
+      this.seconds = Math.round((this.seconds - 0.01) * 100) / 100;
 
       if (this.seconds <= 0) {
+        this.seconds = 0;
         this.finishTest();
+        clearInterval(this.intervalId);
       }
-    }, 1000);
+    }, 10);
   }
 
   finishTest() {

@@ -1,7 +1,16 @@
 <div class="centered-div wrapper p-5">
-  <div style="font-size: 1.3em" class="py-2">Струпов тест:</div>
-  <div style="font-size: 1.2em" class="py-2">{{ resultsStroop }}/20 поени</div>
+  <div class="text-center">
+    <h1 class="py-3" style="font-size: 1.4em;">Резултати</h1>
+  </div>
+  <div style="font-size: 1.3em" class="label-res py-2">Струпов тест:</div>
+  <div style="font-size: 1.2em" class="label-res answer py-2">
+    {{ resultsStroop }}/20 поени за {{ finishTime }} секунди
+  </div>
 
-  <div style="font-size: 1.3em" class="py-2">Тест на повеќезначни искази:</div>
-  <div style="font-size: 1.2em" class="py-2">{{ resultsMultipleMeaning }}/40 поени</div>
+  <div style="font-size: 1.3em" class="label-res py-2">
+    Тест на повеќезначни искази:
+  </div>
+  <div style="font-size: 1.2em" class="label-res answer py-2">
+    {{ resultsMultipleMeaning }}/40 поени
+  </div>
 </div>
