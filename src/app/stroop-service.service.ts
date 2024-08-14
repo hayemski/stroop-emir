@@ -12,7 +12,6 @@ export class StroopService {
 
   participantForm?: ParticipantForm;
 
-
   multipleMeaningResults: number = 0;
 
   constructor() {}

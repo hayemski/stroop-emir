@@ -22,7 +22,7 @@ export class TestResultsPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.stroopService.participantForm) {
+    if (!this.stroopService.participantForm === undefined) {
       this.router.navigate(['/']);
     }
   }

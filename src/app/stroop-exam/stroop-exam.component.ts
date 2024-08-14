@@ -77,6 +77,8 @@ export class StroopExamComponent implements OnInit {
     this.stroopService.stroopResults = this.answers;
     this.stroopService.finishTime = 45 - this.seconds;
 
+    clearInterval(this.intervalId);
+
     this.router.navigate(['/multiple-meaning']);
   }
 
