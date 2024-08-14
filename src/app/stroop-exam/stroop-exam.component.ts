@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StroopService } from '../stroop-service.service';
 import { Router } from '@angular/router';
 import { stroopTestQuestions } from './stroop-test-questions';
@@ -9,7 +9,7 @@ import { ParticipantForm } from '../intro/intro.component';
   templateUrl: './stroop-exam.component.html',
   styleUrl: './stroop-exam.component.scss',
 })
-export class StroopExamComponent {
+export class StroopExamComponent implements OnInit {
   // participantName?: string;
 
   participantForm?: ParticipantForm;
@@ -27,13 +27,15 @@ export class StroopExamComponent {
   constructor(private stroopService: StroopService, private router: Router) {
     this.participantForm = this.stroopService.participantForm;
 
-    if (!this.participantForm) {
-      this.router.navigate(['/']);
-    }
-
     this.selectRandomObject();
 
     this.startTimer();
+  }
+
+  ngOnInit() {
+    if (!this.participantForm) {
+      this.router.navigate(['/']);
+    }
   }
 
   selectRandomObject() {

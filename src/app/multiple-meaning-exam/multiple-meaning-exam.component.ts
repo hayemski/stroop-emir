@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { multipleMeaningTestQuestions } from './exam-questions';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { StroopService } from '../stroop-service.service';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './multiple-meaning-exam.component.html',
   styleUrl: './multiple-meaning-exam.component.scss',
 })
-export class MultipleMeaningExamComponent {
+export class MultipleMeaningExamComponent implements OnInit {
   examQuestions = multipleMeaningTestQuestions;
   examForm: FormGroup;
 
@@ -18,10 +18,6 @@ export class MultipleMeaningExamComponent {
     private stroopService: StroopService,
     private router: Router
   ) {
-    if (!this.stroopService.participantForm) {
-      this.router.navigate(['/']);
-    }
-
     //Randomize the order of the questions
     this.examQuestions = this.shuffle(this.examQuestions);
 
@@ -32,6 +28,12 @@ export class MultipleMeaningExamComponent {
         )
       ),
     });
+  }
+
+  ngOnInit() {
+    if (!this.stroopService.participantForm) {
+      this.router.navigate(['/']);
+    }
   }
 
   createQuestionControls(question: any): FormGroup {
