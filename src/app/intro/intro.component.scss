@@ -6,6 +6,7 @@
 }
 
 .centered-div {
+  margin-top: 2em;
   width: 50%;
   background-color: white;
   border: 1px solid #000;
@@ -28,7 +29,7 @@
   margin-top: 1em;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .centered-div {
     width: 90%;
   }
