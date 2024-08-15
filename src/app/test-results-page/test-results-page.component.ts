@@ -16,7 +16,7 @@ export class TestResultsPageComponent implements OnInit {
 
   constructor(private stroopService: StroopService, private router: Router) {
     this.participantForm = this.stroopService.participantForm;
-    this.finishTime = this.stroopService.finishTime
+    this.finishTime = this.stroopService.finishTime;
     this.resultsStroop = this.stroopService.stroopResults.filter(
       (result: any) => result.answer === 'correct'
     ).length;

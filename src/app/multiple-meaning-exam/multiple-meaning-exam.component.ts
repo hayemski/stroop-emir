@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { StroopService } from '../stroop-service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-multiple-meaning-exam',
   templateUrl: './multiple-meaning-exam.component.html',
@@ -137,6 +138,8 @@ export class MultipleMeaningExamComponent implements OnInit {
     const multipleMeaningResults =
       points - negativePoints < 0 ? 0 : points - negativePoints;
     this.stroopService.multipleMeaningResults = multipleMeaningResults;
+
+    this.stroopService.sendResults();
 
     this.router.navigate(['/results']);
   }
