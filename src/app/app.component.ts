@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'stroop-emir';
+  title = 'Струпов тест и тест на повеќезначни искази';
 }
